@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script th:src="@{js/jquery-3.2.1.js}"></script>
+    <script th:src="@{js/registe.js}"></script>
+</head>
+
+<body>
+<form method="post">
+    <input id="username" name="username" type="text"></br>
+    <input type="password" name="password" id="password"></br>
+    <input type="button" value="提交" onclick="registe()">
+</form>
+</body>
+</html>

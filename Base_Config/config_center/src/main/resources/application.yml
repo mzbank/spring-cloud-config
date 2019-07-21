@@ -1,0 +1,28 @@
+server:
+  port: 8099
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mzbank/config
+          username: mzbank
+          password: at2016year
+          search-paths: config-client
+          default-label: master
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

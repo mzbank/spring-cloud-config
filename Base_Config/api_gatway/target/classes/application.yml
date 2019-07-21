@@ -1,0 +1,20 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: zuul-center
+zuul:
+  routes:
+    baidu:
+      path: /api-a/**
+      url: http://www.baidu.com
+    alibaba:
+      path: /api-b/**
+      serviceId:
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8090/eureka/

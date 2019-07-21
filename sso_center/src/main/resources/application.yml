@@ -1,0 +1,43 @@
+server:
+  port: 8094
+spring:
+  application:
+    name: sso-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/realproject
+    username: root
+    password: 123456
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: /src/main/java
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+        serviceId: config-center
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8090/eureka
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: sso_center.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
